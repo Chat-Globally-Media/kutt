@@ -77,7 +77,7 @@ const LoginPage = () => {
         }
       }
 
-      if (type === "signup" && !ALLOW_REGISTRATION) {
+      if (type === "signup") {
         setLoading(s => ({ ...s, signup: true }));
         try {
           await axios.post(APIv2.AuthSignup, { email, password });
