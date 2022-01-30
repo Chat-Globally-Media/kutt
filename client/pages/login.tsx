@@ -8,7 +8,7 @@ import Link from "next/link";
 import axios from "axios";
 
 import { useStoreState, useStoreActions } from "../store";
-import { APIv2, DISALLOW_REGISTRATION } from "../consts";
+import { APIv2, ALLOW_REGISTRATION } from "../consts";
 import { ColCenterV } from "../components/Layout";
 import AppWrapper from "../components/AppWrapper";
 import { TextInput } from "../components/Input";
@@ -77,7 +77,7 @@ const LoginPage = () => {
         }
       }
 
-      if (type === "signup" && !DISALLOW_REGISTRATION) {
+      if (type === "signup" && !ALLOW_REGISTRATION) {
         setLoading(s => ({ ...s, signup: true }));
         try {
           await axios.post(APIv2.AuthSignup, { email, password });
